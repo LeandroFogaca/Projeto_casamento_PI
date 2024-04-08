@@ -15,3 +15,7 @@ const casamentoExemplo2 = {
 };
 
 let listaCasamentos = [casamentoExemplo, casamentoExemplo2];
+
+const domNode = document.getElementById('react-components');
+const root = ReactDOM.createRoot(domNode);
+root.render(<h1>Hello, world</h1>);
