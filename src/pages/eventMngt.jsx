@@ -1,11 +1,13 @@
 // import React from 'react';
 import Footer from '../components/footer';
+import ToolBar from '../components/toolBar';
+import Table from '../components/table';
 
 function eventMngt() {
 	return (
 		<div>
-			<h1>Página de Gerênciamento do casamento e geraão de relátorio</h1>
-
+			<ToolBar newBtn={'/app/newguest'} />
+			<Table />
 			<Footer />
 		</div>
 	);

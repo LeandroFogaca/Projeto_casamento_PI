@@ -6,8 +6,7 @@ import Footer from '../components/footer';
 function MainApp() {
 	return (
 		<div>
-			<h1>Welcome to Main App</h1>
-			<ToolBar />
+			<ToolBar newBtn={'/app/newevent'} />
 			<Cards />
 			<Footer />
 		</div>

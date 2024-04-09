@@ -6,7 +6,7 @@ function newEvent() {
 	return (
 		<div>
 			<h1>Página de cadastro de novo casamento</h1>
-			<Toolbar />
+			<Toolbar newBtn={'/app/newevent'} />
 			<Footer />
 		</div>
 	);

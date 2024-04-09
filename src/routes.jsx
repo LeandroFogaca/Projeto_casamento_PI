@@ -15,10 +15,10 @@ const appRoutes = () => {
 				<Route path="/" element={<Index />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/app" element={<MainApp />} />
-				<Route path="/app/newEvent" element={<NewEvent />} />
-				<Route path="/app/eventMngt" element={<EventMngt />} />
-				<Route path="/app/newGuest" element={<NewGuest />} />
-				<Route path="/app/guestMngt" element={<GuestMngt />} />
+				<Route path="/app/newevent" element={<NewEvent />} />
+				<Route path="/app/event" element={<EventMngt />} />
+				<Route path="/app/newguest" element={<NewGuest />} />
+				<Route path="/app/guest" element={<GuestMngt />} />
 			</Routes>
 		</Router>
 	);
