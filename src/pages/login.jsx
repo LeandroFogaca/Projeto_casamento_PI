@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/footer';
 
 function LoginPage() {
 	const [usermail, setUsermail] = useState('');
@@ -14,22 +15,8 @@ function LoginPage() {
 
 		if (mail === 'marli@teste.com' && password === '123456') {
 			navigate('/app');
-			// alert(`You searched for '${mail}' and '${password}`);
 		}
 	}
-
-	// handleSubmit = (event) => {
-	// 	event.preventDefault();
-	// 	// Handle login logic here
-	// 	const Email = 'marli@teste.com';
-	// 	const Password = '123456';
-
-	// 	if (this.state.username === Email && this.state.password === Password) {
-	// 		window.location.href = './mainApp';
-	// 	} else {
-	// 		alert('Usuário ou senha inválidos!');
-	// 	}
-	// };
 
 	return (
 		<main className="form-signin">
@@ -71,6 +58,7 @@ function LoginPage() {
 					Sistema de Gerenciamento de convidados
 				</p>
 			</form>
+			<Footer />
 		</main>
 	);
 }

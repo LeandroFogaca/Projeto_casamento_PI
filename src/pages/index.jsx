@@ -1,6 +1,8 @@
 // import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Footer from '../components/footer';
+
 function Index() {
 	return (
 		<div className=" h-100">
@@ -67,9 +69,7 @@ function Index() {
 				</p>
 			</main>
 
-			<footer className="mt-auto position-absolute bottom-0 start-50 translate-middle-x">
-				<p>Projeto integrador UNIVESP</p>
-			</footer>
+			<Footer />
 		</div>
 	);
 }
