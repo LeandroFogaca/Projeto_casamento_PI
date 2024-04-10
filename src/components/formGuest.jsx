@@ -6,42 +6,54 @@ export default function FormGuest() {
 	}
 
 	return (
-		<div className="col-8 m-5">
-			<h4 className="mb-3">Convidado</h4>
-			<form className="col row-col-sm">
-				<div className="row m-2">
-					<label className=" col-3 form-label">Nome</label>
-					<input
-						id="name"
-						className="form-control col "
-						type="text"
-						placeholder=""
-						// value=""
-						onChange={print}
-					/>
+		<div className="container-fluid m-2">
+			<h4 className="my-4">Convidado</h4>
+			<form className="col">
+				<div className="row justify-content-center m-2">
+					<div className="col-4">
+						<label className=" form-label">Nome</label>
+					</div>
+					<div className="col-auto">
+						<input
+							id="name"
+							className="form-control"
+							type="text"
+							placeholder="nome completo"
+							// value=""
+							onChange={print}
+						/>
+					</div>
 				</div>
 
-				<div className="row m-2">
-					<label className=" col-3 form-label">Mesa</label>
-					<input
-						onChange={print}
-						type="number"
-						className="form-control col"
-						id="table"
-						placeholder=""
-						// value=""
-					/>
+				<div className="row justify-content-center m-2">
+					<div className="col-4">
+						<label className="form-label">Mesa</label>
+					</div>
+					<div className="col-auto">
+						<input
+							onChange={print}
+							type="number"
+							className="form-control"
+							id="table"
+							placeholder="número da mesa"
+							// value=""
+						/>
+					</div>
 				</div>
 
-				<div className="row m-2">
-					<label className="form-label col-3">Comentário:</label>
-					<input
-						onChange={print}
-						type="text"
-						className="form-control col"
-						id="comment"
-						placeholder="1234 Main St"
-					/>
+				<div className="row justify-content-center m-2">
+					<div className="col-4">
+						<label className="form-label ">Comentário:</label>
+					</div>
+					<div className="col-auto">
+						<input
+							onChange={print}
+							type="text"
+							className="form-control"
+							id="comment"
+							placeholder="madrinha, padrinho, etc."
+						/>
+					</div>
 				</div>
 
 				<hr className="my-4" />

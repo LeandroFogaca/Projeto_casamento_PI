@@ -28,7 +28,7 @@ export default function ToolBar(props) {
 						<input
 							className="form-control"
 							type="text"
-							placeholder="Search"
+							placeholder="Procurar"
 							aria-label="Search"
 						/>
 					</form>

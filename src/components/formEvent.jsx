@@ -6,8 +6,8 @@ export default function FormEvent() {
 	}
 
 	return (
-		<div className="col-8 m-5">
-			<h4 className="mb-3">Nova Cerimônia</h4>
+		<div className="container-fluid m-2">
+			<h4 className="mb-3">Cerimônia</h4>
 			<form className="col row-col-sm">
 				<div className="row m-2">
 					<label className=" col-3 form-label">Noiva:</label>
@@ -15,7 +15,7 @@ export default function FormEvent() {
 						id="noiva"
 						className="form-control col "
 						type="text"
-						placeholder=""
+						placeholder="nome completo"
 						// value=""
 						onChange={print}
 					/>
@@ -28,7 +28,7 @@ export default function FormEvent() {
 						type="text"
 						className="form-control col"
 						id="lastName"
-						placeholder=""
+						placeholder="nome completo"
 						// value=""
 					/>
 				</div>
@@ -40,7 +40,7 @@ export default function FormEvent() {
 						type="email"
 						className="col form-control"
 						id="email"
-						placeholder="you@example.com"
+						placeholder="seu@email.com"
 					/>
 				</div>
 
@@ -51,7 +51,7 @@ export default function FormEvent() {
 						type="text"
 						className="form-control col"
 						id="address"
-						placeholder="1234 Main St"
+						placeholder="local da cerimônia"
 					/>
 				</div>
 
