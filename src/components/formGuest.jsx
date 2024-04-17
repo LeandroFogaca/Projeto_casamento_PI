@@ -11,7 +11,7 @@ export default function FormGuest() {
 			<form className="col">
 				<div className="row justify-content-center m-2">
 					<div className="col-4">
-						<label className=" form-label">Nome</label>
+						<label className=" form-label col-3">Nome</label>
 					</div>
 					<div className="col-auto">
 						<input
@@ -24,10 +24,24 @@ export default function FormGuest() {
 						/>
 					</div>
 				</div>
+				<div className="row justify-content-center m-2">
+					<div className="col-4">
+						<label className="form-label col-3">Idade</label>
+					</div>
+					<div className="col-auto">
+						<input
+							onChange={print}
+							type="number"
+							className="form-control"
+							id="age"
+							placeholder="idade"
+						/>
+					</div>
+				</div>
 
 				<div className="row justify-content-center m-2">
 					<div className="col-4">
-						<label className="form-label">Mesa</label>
+						<label className="form-label col-3">Mesa</label>
 					</div>
 					<div className="col-auto">
 						<input
@@ -43,7 +57,7 @@ export default function FormGuest() {
 
 				<div className="row justify-content-center m-2">
 					<div className="col-4">
-						<label className="form-label ">Comentário:</label>
+						<label className="form-label col-3 ">Comentário:</label>
 					</div>
 					<div className="col-auto">
 						<input

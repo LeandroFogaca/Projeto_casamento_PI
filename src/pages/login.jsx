@@ -19,18 +19,11 @@ function LoginPage() {
 	}
 
 	return (
-		<main className="form-signin">
-			<form id="loginForm" onSubmit={validate}>
-				<img
-					className="mb-4"
-					src="/src/assets/brand/bootstrap-logo.svg"
-					alt=""
-					width="72"
-					height="57"
-				/>
-				<h1 className="h3 mb-3 fw-normal">Login</h1>
+		<main className="form-signin w-100 vh-100 d-flex flex-column align-items-center justify-content-center">
+			<form id="loginForm" onSubmit={validate} className="align-self-center ">
+				<h1 className="h3 mb-3 fw-normal my-2">Login</h1>
 
-				<div className="form-floating">
+				<div className="form-floating  my-2">
 					<input
 						type="email"
 						className="form-control"
@@ -40,7 +33,7 @@ function LoginPage() {
 					/>
 					<label htmlFor="floatingInput">e-mail</label>
 				</div>
-				<div className="form-floating">
+				<div className="form-floating  my-2">
 					<input
 						type="password"
 						className="form-control"
@@ -51,7 +44,7 @@ function LoginPage() {
 					<label htmlFor="floatingPassword">senha</label>
 				</div>
 
-				<button className="w-100 btn btn-lg btn-primary" type="submit">
+				<button className="w-100 btn btn-lg   my-2 btn-primary" type="submit">
 					Entrar
 				</button>
 				<p className="mt-5 mb-3 text-muted">
