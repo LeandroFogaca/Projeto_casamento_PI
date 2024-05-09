@@ -13,8 +13,8 @@ function Cards() {
 	}
 
 	return (
-		<div className="d-flex justify-content-evenly flex-sm-wrap">
-			<div className="card m-2 w-40">
+		<div className="d-flex justify-content-evenly flex-wrap">
+			<div className="card m-2 p-2 w-auto mw-50">
 				<div className="card-body">
 					<h5 className="card-title">Casamento</h5>
 					<h6 className="card-subtitle mb-2 text-body-secondary">
@@ -30,7 +30,7 @@ function Cards() {
 					</button>
 				</div>
 			</div>
-			<div className="card m-2 w-40">
+			<div className="card m-2 w-auto p-2">
 				<div className="card-body">
 					<h5 className="card-title">Casamento</h5>
 					<h6 className="card-subtitle mb-2 text-body-secondary">
@@ -46,7 +46,7 @@ function Cards() {
 					</button>
 				</div>
 			</div>
-			<div className="card m-2 w-40">
+			<div className="card m-2 w-auto p-2">
 				<div className="card-body">
 					<h5 className="card-title">Casamento</h5>
 					<h6 className="card-subtitle mb-2 text-body-secondary">

@@ -1,12 +1,13 @@
 // import React from 'react';
 import Toolbar from '../components/toolBar';
 import Footer from '../components/footer';
+import FormEvent from '../components/formEvent';
 
 function newEvent() {
 	return (
 		<div>
-			<h1>Página de cadastro de novo casamento</h1>
 			<Toolbar newBtn={'/app/newevent'} />
+			<FormEvent />
 			<Footer />
 		</div>
 	);

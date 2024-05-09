@@ -1,8 +1,21 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto utiliza React e Vite para um desenvolvimento rápido e eficiente. Ele também inclui HMR (Hot Module Replacement) e algumas regras ESLint.
 
-Currently, two official plugins are available:
+## Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de começar, certifique-se de ter o Node.js e o npm instalados em sua máquina.
+
+## Instalação
+
+1. Clone o repositório para a sua máquina local usando `git clone https://github.com/LeandroFogaca/Projeto_casamento_PI.git`
+2. Mude para o diretório do projeto `cd SEU_REPOSITORIO`
+3. Instale as dependências do projeto com `npm install`
+
+## Uso
+
+Para iniciar o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
