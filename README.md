@@ -1,29 +1,21 @@
-# Projeto_casamento_PI
+# React + Vite
 
-DRP04-PJI110-SALA-003GRUPO-017
+Este projeto utiliza React e Vite para um desenvolvimento rápido e eficiente. Ele também inclui HMR (Hot Module Replacement) e algumas regras ESLint.
 
-Para usar esse projeto:
+## Pré-requisitos
 
-    git clone (a url do projeto)
-    npm install
-    npm start
+Antes de começar, certifique-se de ter o Node.js e o npm instalados em sua máquina.
 
-Links de referência
+## Instalação
 
-[Figma](https://www.figma.com/proto/Q49N0oOHaUSqEcvvQ1OcFk/Projeto-Casamento?type=design&node-id=16-186&t=TMOtlxjxKpAukZyK-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=16%3A186&mode=design)
+1. Clone o repositório para a sua máquina local usando `git clone https://github.com/LeandroFogaca/Projeto_casamento_PI.git`
+2. Mude para o diretório do projeto `cd SEU_REPOSITORIO`
+3. Instale as dependências do projeto com `npm install`
 
-LOG de Açõe:
+## Uso
 
-<<<<<<< Updated upstream
-1. Iniciado o projeto com [bootstrap](https://getbootstrap.com/docs/5.3/getting-started/vite/)
-2.
-=======
 Para iniciar o servidor de desenvolvimento:
 
 ```bash
 npm run dev
 ```
-
-usuário: marli@teste.com
-senha: 123456
->>>>>>> Stashed changes
