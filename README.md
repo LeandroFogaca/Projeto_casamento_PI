@@ -14,5 +14,16 @@ Links de referência
 
 LOG de Açõe:
 
+<<<<<<< Updated upstream
 1. Iniciado o projeto com [bootstrap](https://getbootstrap.com/docs/5.3/getting-started/vite/)
 2.
+=======
+Para iniciar o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+usuário: marli@teste.com
+senha: 123456
+>>>>>>> Stashed changes
