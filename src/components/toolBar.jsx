@@ -1,5 +1,6 @@
 // import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -8,13 +9,17 @@ export default function ToolBar(props) {
 		newBtn: PropTypes.string.isRequired,
 	};
 
+	const navigate = useNavigate();
+	const { id } = useParams();
+
 	const ftnOfBtn = props.newBtn; //endereço para onde vai o botão novo
 
-	const navigate = useNavigate();
-
 	function newInput() {
-		navigate(ftnOfBtn);
-		console.log(ftnOfBtn);
+		if (id !== null && id !== undefined) {
+			navigate(ftnOfBtn + id);
+		} else {
+			navigate(ftnOfBtn);
+		}
 	}
 
 	return (

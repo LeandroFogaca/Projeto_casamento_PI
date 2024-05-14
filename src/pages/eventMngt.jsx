@@ -6,7 +6,7 @@ import Table from '../components/table';
 function eventMngt() {
 	return (
 		<div>
-			<ToolBar newBtn={'/app/newguest'} />
+			<ToolBar newBtn={'/app/newguest/'} />
 			<Table />
 			<Footer />
 		</div>

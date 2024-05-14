@@ -19,7 +19,7 @@ export default function FormEvent() {
 	});
 
 	useEffect(() => {
-		console.log(id);
+		// console.log(id);
 		if (id !== null && id !== undefined) {
 			const allData = JSON.parse(localStorage.getItem('allData'));
 			const eventData = allData[id];

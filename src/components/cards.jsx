@@ -18,8 +18,8 @@ function Cards() {
 		}
 	}, []);
 
-	function openEvent() {
-		Navigate('/app/event');
+	function openEvent(index) {
+		Navigate(`/app/event/${index}`);
 	}
 	function newEvent(index) {
 		Navigate(`/app/newevent/${index}`);
@@ -31,14 +31,17 @@ function Cards() {
 				events.map((event, index) => (
 					<div key={index} className="card m-2 p-2 w-auto mw-50">
 						<div className="card-body">
-							<h5 className="card-title">Casamneto</h5>
+							<h5 className="card-title">Casamento</h5>
 							<h6 className="card-subtitle mb-2 text-body-secondary">
 								{event.noiva} e {event.noivo}
 							</h6>
 							<p className="card-text">{event.endereco}</p>
 							<p className="card-text">{event.data}</p>
 
-							<button className="m-3" type="button" onClick={openEvent}>
+							<button
+								className="m-3"
+								type="button"
+								onClick={() => openEvent(index)}>
 								Abrir
 							</button>
 							<button

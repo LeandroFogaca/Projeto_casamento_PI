@@ -17,8 +17,8 @@ const appRoutes = () => {
 				<Route path="/app" element={<MainApp />} />
 				<Route path="/app/newevent" element={<NewEvent />} />
 				<Route path="/app/newevent/:id" element={<NewEvent />} />
-				<Route path="/app/event" element={<EventMngt />} />
-				<Route path="/app/newguest" element={<NewGuest />} />
+				<Route path="/app/event/:id" element={<EventMngt />} />
+				<Route path="/app/newguest/:id" element={<NewGuest />} />
 				<Route path="/app/guest" element={<GuestMngt />} />
 			</Routes>
 		</Router>

@@ -10,20 +10,30 @@ function readJSONFromLocalStorage(key) {
 	return JSON.parse(json);
 }
 
-function updateJSONInLocalStorage(key, index, updatedJson) {
+function deleteJSONFromLocalStorage(key, index) {
 	const existingData = readJSONFromLocalStorage(key) || [];
 	if (index >= 0 && index < existingData.length) {
-		existingData[index] = updatedJson;
+		existingData.splice(index, 1);
 		localStorage.setItem(key, JSON.stringify(existingData));
 	} else {
 		console.error(`Index ${index} out of bounds`);
 	}
 }
 
-function deleteJSONFromLocalStorage(key, index) {
+function updateJSONInLocalStorage(key, index, updatedJson) {
 	const existingData = readJSONFromLocalStorage(key) || [];
 	if (index >= 0 && index < existingData.length) {
-		existingData.splice(index, 1);
+		existingData[index].lista = updatedJson;
+		localStorage.setItem(key, JSON.stringify(existingData));
+	} else {
+		console.error(`Index ${index} out of bounds`);
+	}
+}
+
+function updateListaJSONInLocalStorage(key, index, updatedListaJson) {
+	const existingData = readJSONFromLocalStorage(key) || [];
+	if (index >= 0 && index < existingData.length) {
+		existingData[index].lista = updatedListaJson;
 		localStorage.setItem(key, JSON.stringify(existingData));
 	} else {
 		console.error(`Index ${index} out of bounds`);
@@ -35,4 +45,5 @@ export {
 	readJSONFromLocalStorage,
 	updateJSONInLocalStorage,
 	deleteJSONFromLocalStorage,
+	updateListaJSONInLocalStorage,
 };

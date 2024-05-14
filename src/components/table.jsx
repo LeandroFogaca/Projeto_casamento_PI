@@ -1,6 +1,29 @@
-// import React from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-export default function table() {
+export default function Table() {
+	const { id } = useParams();
+
+	const [lista, setLista] = useState([
+		{
+			name: '',
+			age: '',
+			table: '',
+			comment: '',
+		},
+	]);
+
+	useEffect(() => {
+		if (id !== null && id !== undefined) {
+			const allData = JSON.parse(localStorage.getItem('allData'));
+			const eventLista = allData[id].lista;
+
+			setLista(eventLista);
+			console.log(...eventLista);
+			console.log(lista);
+		}
+	}, []);
+
 	return (
 		<div className="mt-4">
 			<div className="table-responsive">
@@ -13,41 +36,13 @@ export default function table() {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1,001</td>
-							<td>random</td>
-							<td>data</td>
-						</tr>
-						<tr>
-							<td>1,002</td>
-							<td>placeholder</td>
-							<td>irrelevant</td>
-						</tr>
-						<tr>
-							<td>1,003</td>
-							<td>data</td>
-							<td>rich</td>
-						</tr>
-						<tr>
-							<td>1,003</td>
-							<td>information</td>
-							<td>placeholder</td>
-						</tr>
-						<tr>
-							<td>1,004</td>
-							<td>text</td>
-							<td>random</td>
-						</tr>
-						<tr>
-							<td>1,005</td>
-							<td>dashboard</td>
-							<td>irrelevant</td>
-						</tr>
-						<tr>
-							<td>1,006</td>
-							<td>dashboard</td>
-							<td>illustrative</td>
-						</tr>
+						{lista.map((item, index) => (
+							<tr key={index}>
+								<td>{index}</td>
+								<td>{item.name}</td>
+								<td>{item.table}</td>
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</div>
