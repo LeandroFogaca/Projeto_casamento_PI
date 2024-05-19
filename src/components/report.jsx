@@ -32,9 +32,9 @@ const Report = () => {
 
 		if (lista) {
 			totalConvidados = lista.length;
-			totalPresentes = lista.filter((guest) => guest.presente).length;
+			totalPresentes = lista.filter((guest) => guest.present).length;
 			totalAusentes = totalConvidados - totalPresentes;
-			totalMenor12 = lista.filter((guest) => guest.idade < 12).length;
+			totalMenor12 = lista.filter((guest) => guest.age < 12).length;
 		}
 
 		setTotais({
