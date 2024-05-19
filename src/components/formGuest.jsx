@@ -12,6 +12,7 @@ export default function FormGuest() {
 		age: '',
 		table: '',
 		comment: '',
+		present: false,
 	});
 
 	useEffect(() => {

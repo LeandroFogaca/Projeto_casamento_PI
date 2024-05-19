@@ -50,6 +50,13 @@ function Cards() {
 								onClick={() => newEvent(index)}>
 								Editar
 							</button>
+
+							<button
+								className="m-3"
+								type="button"
+								onClick={() => Navigate(`/app/report/${index}`)}>
+								Relatório
+							</button>
 						</div>
 					</div>
 				))

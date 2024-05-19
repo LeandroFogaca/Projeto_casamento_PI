@@ -7,6 +7,7 @@ import NewEvent from './pages/newEvent';
 import EventMngt from './pages/eventMngt';
 import NewGuest from './pages/newGuest';
 import GuestMngt from './pages/guestMngt';
+import Report from './pages/report';
 
 const appRoutes = () => {
 	return (
@@ -20,6 +21,7 @@ const appRoutes = () => {
 				<Route path="/app/event/:id" element={<EventMngt />} />
 				<Route path="/app/newguest/:id" element={<NewGuest />} />
 				<Route path="/app/guest" element={<GuestMngt />} />
+				<Route path="/app/report/:id" element={<Report />} />
 			</Routes>
 		</Router>
 	);

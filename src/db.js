@@ -40,10 +40,21 @@ function updateListaJSONInLocalStorage(key, index, updatedListaJson) {
 	}
 }
 
+function updatePresentValueInLocalStorage(key, index, idLista, updatedValue) {
+	const existingData = readJSONFromLocalStorage(key) || [];
+	if (index >= 0 && index < existingData.length) {
+		existingData[index].lista.present = updatedValue;
+		localStorage.setItem(key, JSON.stringify(existingData));
+	} else {
+		console.error(`Index ${index} out of bounds`);
+	}
+}
+
 export {
 	saveJSONToLocalStorage,
 	readJSONFromLocalStorage,
 	updateJSONInLocalStorage,
 	deleteJSONFromLocalStorage,
 	updateListaJSONInLocalStorage,
+	updatePresentValueInLocalStorage,
 };

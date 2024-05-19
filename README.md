@@ -17,5 +17,7 @@ Antes de começar, certifique-se de ter o Node.js e o npm instalados em sua máq
 Para iniciar o servidor de desenvolvimento:
 
 ```bash
+npm install
+
 npm run dev
 ```
