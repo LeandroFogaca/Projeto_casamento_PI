@@ -63,7 +63,7 @@ const Report = () => {
 
     return (
         <div>
-            <h1>Report</h1>
+            <h1>Relatório da Cerimônia</h1>
             <p>Total Convidados: {totais.totalConvidados}</p>
             <p>Total Presentes: {totais.totalPresentes}</p>
             <p>Total Ausentes: {totais.totalAusentes}</p>
