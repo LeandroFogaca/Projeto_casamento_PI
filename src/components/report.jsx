@@ -70,7 +70,7 @@ const Report = () => {
             <p>Total Menor de 12 anos: {totais.totalMenor12}</p>
 
             <button type="button" onClick={goBack}>
-                Voltar.
+                Voltar
             </button>
         </div>
     );

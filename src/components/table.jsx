@@ -30,6 +30,14 @@ export default function Table() {
         }
     };
 
+    const deleteItem = (index) => {
+        const updatedLista = lista.filter((_, i) => i !== index);
+        setLista(updatedLista);
+        events[id].lista = updatedLista;
+        setEvents(events);
+        updateJSONInLocalStorage('allData', id, updatedLista);
+    };
+
     useEffect(() => {
         if (id !== null && id !== undefined) {
             const data = readJSONFromLocalStorage('allData');
@@ -49,15 +57,21 @@ export default function Table() {
                             <th scope="col">Nome</th>
                             <th scope="col">Mesa</th>
                             <th scope="col">Presença</th>
+                            <th scope="col">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         {lista.map((item, index) => (
-                            <tr key={index} onClick={() => toggle(item, index)}>
+                            <tr key={index}>
                                 <td>{index}</td>
                                 <td>{item.name}</td>
                                 <td>{item.table}</td>
-                                <td>{item.present ? 'Sim' : 'Não'}</td>
+                                <td onClick={() => toggle(item, index)}>
+                                    {item.present ? 'Sim' : 'Não'}
+                                </td>
+                                <td>
+                                    <button onClick={() => deleteItem(index)}>Remover</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
