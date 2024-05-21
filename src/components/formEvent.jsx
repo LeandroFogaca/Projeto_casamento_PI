@@ -150,7 +150,7 @@ export default function FormEvent() {
 					<div className="col-auto">
 						<input
 							onChange={handleInputChange}
-							type="data"
+							type="date"
 							className="form-control"
 							id="data"
 							placeholder="dd/mm/aaaa"

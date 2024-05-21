@@ -1,5 +1,5 @@
 // import React from 'react';
-import Footer from '../components/footer';
+// import Footer from '../components/footer';
 import ToolBar from '../components/toolBar';
 import Table from '../components/table';
 
@@ -8,7 +8,7 @@ function eventMngt() {
 		<div>
 			<ToolBar newBtn={'/app/newguest/'} />
 			<Table />
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }
