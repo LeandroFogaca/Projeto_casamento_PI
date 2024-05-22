@@ -1,6 +1,6 @@
 // import React from 'react';
 import { Link } from 'react-router-dom';
-
+import BackgroundImage from '../assets/alianca1.jpg';
 import Footer from '../components/footer';
 
 function Index() {
@@ -53,7 +53,14 @@ function Index() {
 				</nav>
 			</header>
 
-			<main className=" h-100 px-3">
+			<main
+				className="h-100vh p-5 px-3 "
+				style={{
+					backgroundImage: `url(${BackgroundImage})`,
+					backgroundSize: 'cover',
+					backgroundPosition: 'center',
+					height: '100vh',
+				}}>
 				<h1>Criando Momentos Inesquecíveis</h1>
 				<p>
 					O casamento é o momento de celebrar o seu amor, e para que esse
