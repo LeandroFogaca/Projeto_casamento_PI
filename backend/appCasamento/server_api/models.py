@@ -11,6 +11,7 @@ class Evento(models.Model):
     data = models.DateField()
     lista = models.JSONField()
     mensagem = models.TextField()
+    comments = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.noiva} e {self.noivo}"
