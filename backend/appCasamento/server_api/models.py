@@ -10,6 +10,7 @@ class Evento(models.Model):
     endereco = models.CharField(max_length=255)
     data = models.DateField()
     lista = models.JSONField()
+    mensagem = models.TextField()
 
     def __str__(self):
         return f"{self.noiva} e {self.noivo}"
