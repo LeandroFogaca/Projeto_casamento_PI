@@ -1,0 +1,55 @@
+
+services:
+  db:
+    image: mariadb:latest
+    container_name: mariadbPI
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: phpmyadminPI
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      - PMA_PORT=3306
+      - PMA_HOST=db
+      - MYSQL_ROOT_PASSWORD=root
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+      - TZ=America/Sao_Paulo
+      - UPLOAD_LIMIT=100M
+    ports:
+      - '8080:80'
+    depends_on:
+      - db
+
+  django:
+    image: django:latest
+    volumes:
+      - ./backend:/server
+    working_dir: /appCasamento
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: mydatabase
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+
+  react:
+    image: node:latest
+    volumes:
+      - ./frontend:/page
+    working_dir: /page
+    command: sh -c "npm install && npm run dev --host"
+    ports:
+      - "5173:5173"
+
+volumes:
+  db_data:
