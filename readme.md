@@ -23,3 +23,12 @@ Aprimoramento da plataforma Web de gerenciamento de listas de convidados em ceri
 - [ ] Implementar o banco SQL
 - [ ] Implementar testes
 - [ ] Acessibilidade
+
+
+
+## Como testar o projeto
+
+
+### Frontend
+
+    Leia o readme.md dentro da pasta frontend
