@@ -34,6 +34,7 @@ Aprimoramento da plataforma Web de gerenciamento de listas de convidados em ceri
 
     localhost:5173 -> Frontend
     localhost:8080 -> PHPMyAdmin
+    http://127.0.0.1:8000/ -> servidor django
 
 
 

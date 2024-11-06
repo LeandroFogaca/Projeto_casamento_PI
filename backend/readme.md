@@ -12,6 +12,6 @@ https://www.django-rest-framework.org/tutorial/quickstart/
     source env/bin/activate # On Windows use `env\Scripts\activate`
 
     cd appCasamento
-    python manager.py runserver
+    python manage.py runserver
 
 '''

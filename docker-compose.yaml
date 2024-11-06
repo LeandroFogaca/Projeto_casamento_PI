@@ -33,11 +33,11 @@ services:
 
 
   django:
-    image: django:latest
+    image: python:latest
     volumes:
       - ./backend:/server
-    working_dir: /appCasamento
-    command: sh -c "python3 -m venv env && source env/bin/activate && python manage.py runserver 0.0.0.0:8000"
+    working_dir: /server
+    command: sh entrypoint.sh
     ports:
       - "8000:8000"
     depends_on:
