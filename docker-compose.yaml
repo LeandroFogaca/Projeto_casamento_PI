@@ -9,6 +9,9 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - mynetwork
+
 
   phpmyadmin:
     container_name: phpmyadminPI
@@ -25,6 +28,9 @@ services:
       - '8080:80'
     depends_on:
       - db
+    networks:
+      - mynetwork
+
 
   django:
     image: django:latest
@@ -41,15 +47,25 @@ services:
       DB_NAME: mydatabase
       DB_USER: myuser
       DB_PASSWORD: mypassword
+    networks:
+      - mynetwork
+
 
   react:
     image: node:latest
     volumes:
       - ./frontend:/page
     working_dir: /page
-    command: sh -c "npm install && npm run dev --host"
+    command: sh -c "npm install && npm run dev -- --host"
     ports:
       - "5173:5173"
+    networks:
+      - mynetwork
+
 
 volumes:
   db_data:
+
+networks:
+  mynetwork:
+    driver: bridge

@@ -29,6 +29,14 @@ Aprimoramento da plataforma Web de gerenciamento de listas de convidados em ceri
 ## Como testar o projeto
 
 
+    docker-compose up -d --force-recreate  // para iniciar os container
+
+
+    localhost:5173 -> Frontend
+    localhost:8080 -> PHPMyAdmin
+
+
+
 ### Frontend
 
     Leia o readme.md dentro da pasta frontend
