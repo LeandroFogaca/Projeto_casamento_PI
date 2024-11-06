@@ -11,17 +11,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='Evento',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('noiva', models.CharField(max_length=100)),
-                ('noivo', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254)),
-                ('endereco', models.CharField(max_length=255)),
-                ('data', models.DateField()),
-                ('lista', models.JSONField()),
-                ('mensagem', models.TextField()),
-            ],
-        ),
+
     ]

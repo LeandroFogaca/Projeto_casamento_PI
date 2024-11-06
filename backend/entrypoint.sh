@@ -15,8 +15,8 @@ pip install mysqlclient
 # entra na pasta appCasamento
 
 cd appCasamento
-
+python manage.py makemigrations
+python manage.py migrate
 
 # Inicia o servidor de desenvolvimento Django
 python manage.py runserver 0.0.0.0:8000
-python manage.py migrate
