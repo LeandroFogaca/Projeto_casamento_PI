@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { readJSONFromLocalStorage } from '../db';
+import { getAPIeventos } from '../api';
 
 function Cards() {
 	const [events, setEvents] = useState();
@@ -9,13 +10,18 @@ function Cards() {
 	const Navigate = useNavigate();
 
 	useEffect(() => {
-		const data = readJSONFromLocalStorage('allData');
-		setEvents(data);
+		// const data = readJSONFromLocalStorage('allData');
+		var data;
+		const dataAPI = getAPIeventos();
+		dataAPI.then((data) => {
+			setEvents(data.results);
+			if (data.results.length > 0) {
+				setIsvisible(true);
+			}
+		});
 
-		console.log(data);
-		if (data.length > 0) {
-			setIsvisible(true);
-		}
+		// setEvents(data);
+		// console.log(data);
 	}, []);
 
 	function openEvent(index) {
@@ -42,6 +48,7 @@ function Cards() {
 								className="m-3"
 								type="button"
 								onClick={() => openEvent(index)}>
+								{/* onClick={() => console.log(index)}> */}
 								Abrir
 							</button>
 							<button

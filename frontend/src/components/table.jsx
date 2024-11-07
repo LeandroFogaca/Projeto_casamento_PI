@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { readJSONFromLocalStorage, updateJSONInLocalStorage } from '../db';
+import { updateJSONInLocalStorage } from '../db';
+import { getAPIconvidados } from '../api';
 
 export default function Table() {
 	const { id } = useParams();
@@ -40,10 +41,13 @@ export default function Table() {
 
 	useEffect(() => {
 		if (id !== null && id !== undefined) {
-			const data = readJSONFromLocalStorage('allData');
-			setEvents(data);
-			const eventLista = data[id].lista;
-			setLista(eventLista);
+			const dataAPI = getAPIconvidados();
+
+			dataAPI.then((data) => {
+				setEvents(data.results);
+				const eventList = data.results.filter((event) => event.evento == id);
+				setLista(eventList);
+			});
 		}
 	}, []);
 
@@ -64,8 +68,8 @@ export default function Table() {
 						{lista.map((item, index) => (
 							<tr key={index}>
 								<td>{index}</td>
-								<td>{item.name}</td>
-								<td>{item.table}</td>
+								<td>{item.nome}</td>
+								<td>{item.mesa}</td>
 								<td>
 									<button
 										onClick={() => toggle(item, index)}
