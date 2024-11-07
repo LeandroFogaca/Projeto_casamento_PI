@@ -11,10 +11,10 @@ function Cards() {
 
 	useEffect(() => {
 		// const data = readJSONFromLocalStorage('allData');
-		var data;
 		const dataAPI = getAPIeventos();
 		dataAPI.then((data) => {
 			setEvents(data.results);
+			console.log(data.results);
 			if (data.results.length > 0) {
 				setIsvisible(true);
 			}
@@ -47,21 +47,21 @@ function Cards() {
 							<button
 								className="m-3"
 								type="button"
-								onClick={() => openEvent(index)}>
-								{/* onClick={() => console.log(index)}> */}
+								onClick={() => openEvent(event.id)}>
+								{/* onClick={() => console.log(event.id)}>  */}
 								Abrir
 							</button>
 							<button
 								className="m-3"
 								type="button"
-								onClick={() => newEvent(index)}>
+								onClick={() => newEvent(event.id)}>
 								Editar
 							</button>
 
 							<button
 								className="m-3"
 								type="button"
-								onClick={() => Navigate(`/app/report/${index}`)}>
+								onClick={() => Navigate(`/app/report/${event.id}`)}>
 								Relatório
 							</button>
 						</div>

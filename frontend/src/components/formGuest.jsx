@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { updateListaJSONInLocalStorage } from '../db';
+import { saveAPIconvidados } from '../api';
 
 export default function FormGuest() {
 	const navigate = useNavigate();
@@ -8,18 +9,18 @@ export default function FormGuest() {
 
 	const [guestList, setGuestList] = useState([]);
 	const [guest, setGuest] = useState({
-		name: '',
-		age: '',
-		table: '',
-		comment: '',
-		present: false,
+		nome: '',
+		idade: '',
+		mesa: '',
+		comentario: '',
+		presente: false,
 	});
 
 	useEffect(() => {
 		if (id !== null && id !== undefined) {
-			const allData = JSON.parse(localStorage.getItem('allData'));
-			const lista = allData[id].lista;
-			setGuestList(lista);
+			// const allData = JSON.parse(localStorage.getItem('allData'));
+			// const lista = allData[id].lista;
+			// setGuestList(lista);
 		}
 	}, [id]);
 
@@ -34,12 +35,25 @@ export default function FormGuest() {
 		updateListaJSONInLocalStorage('allData', id, updatedGuestList); // Persist the updated list
 		alert('Convidado cadastrado com sucesso!');
 		setGuest({
-			name: '',
-			age: '',
-			table: '',
-			comment: '',
-			present: false,
+			nome: '',
+			idade: '',
+			mesa: '',
+			comentario: '',
+			presente: false,
 		});
+	}
+
+	function saveGuestAPI() {
+		guest.evento = id;
+		console.log(guest);
+
+		saveAPIconvidados(guest)
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((error) => {
+				console.error('There was a problem with the fetch operation:', error);
+			});
 	}
 
 	function goBack() {
@@ -56,11 +70,11 @@ export default function FormGuest() {
 					</div>
 					<div className="col-auto">
 						<input
-							id="name"
+							id="nome"
 							className="form-control"
 							type="text"
 							placeholder="nome completo"
-							value={guest.name}
+							value={guest.nome}
 							onChange={handleInputChange}
 						/>
 					</div>
@@ -74,9 +88,9 @@ export default function FormGuest() {
 							onChange={handleInputChange}
 							type="number"
 							className="form-control"
-							id="age"
+							id="idade"
 							placeholder="idade"
-							value={guest.age}
+							value={guest.idade}
 						/>
 					</div>
 				</div>
@@ -89,9 +103,9 @@ export default function FormGuest() {
 							onChange={handleInputChange}
 							type="number"
 							className="form-control"
-							id="table"
+							id="mesa"
 							placeholder="número da mesa"
-							value={guest.table}
+							value={guest.mesa}
 						/>
 					</div>
 				</div>
@@ -104,9 +118,9 @@ export default function FormGuest() {
 							onChange={handleInputChange}
 							type="text"
 							className="form-control"
-							id="comment"
+							id="comentario"
 							placeholder="madrinha, padrinho, etc."
-							value={guest.comment}
+							value={guest.comentario}
 						/>
 					</div>
 				</div>
@@ -115,7 +129,7 @@ export default function FormGuest() {
 					<button className="m-3" type="button" onClick={goBack}>
 						Voltar
 					</button>
-					<button className="m-3" type="button" onClick={saveGuest}>
+					<button className="m-3" type="button" onClick={saveGuestAPI}>
 						Salvar
 					</button>
 				</div>
