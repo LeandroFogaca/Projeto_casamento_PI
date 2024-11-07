@@ -9,8 +9,7 @@ class Evento(models.Model):
     email = models.EmailField()
     endereco = models.CharField(max_length=255)
     data = models.DateField()
-    lista = models.JSONField()
-    mensagem = models.TextField()
+    mensagem = models.TextField( null=True, blank=True)
     comments = models.TextField(null=True, blank=True)
 
     def __str__(self):
@@ -19,10 +18,11 @@ class Evento(models.Model):
 
 class Convidado(models.Model):
     nome = models.CharField(max_length=100)
-    idade = models.IntegerField()
+    idade = models.IntegerField( null=True, blank=True)
     mesa = models.CharField(max_length=10)
-    comentario = models.TextField()
+    comentario = models.TextField( null=True, blank=True)
     presente = models.BooleanField(default=False)
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, related_name='convidados', default=999)
 
     def __str__(self):
         return self.nome

@@ -5,7 +5,27 @@ from django.shortcuts import render
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
+from .models import Convidado, Evento
+from .serializers import ConvidadoSerializer, EventoSerializer
+
 from server_api.serializers import GroupSerializer, UserSerializer
+
+
+class EventoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows events to be viewed or edited.
+    """
+    queryset = Evento.objects.all()
+    serializer_class = EventoSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+class ConvidadoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows guests to be viewed or edited.
+    """
+    queryset = Convidado.objects.all()
+    serializer_class = ConvidadoSerializer
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class UserViewSet(viewsets.ModelViewSet):

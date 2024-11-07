@@ -28,6 +28,8 @@ from server_api import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'convidados', views.ConvidadoViewSet)
+router.register(r'eventos', views.EventoViewSet)
 
 
 # As rotas serão definidas e criadas aqui 

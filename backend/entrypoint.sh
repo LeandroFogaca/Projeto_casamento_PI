@@ -12,6 +12,7 @@
 
 pip install djangorestframework
 pip install mysqlclient
+pip install django-cors-headers
 # entra na pasta appCasamento
 
 cd appCasamento

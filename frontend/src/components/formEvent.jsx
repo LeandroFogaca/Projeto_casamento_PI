@@ -6,6 +6,8 @@ import {
 	deleteJSONFromLocalStorage,
 } from '../db';
 
+import { saveAPIevento } from '../api';
+
 export default function FormEvent() {
 	const navigate = useNavigate();
 	const { id } = useParams();
@@ -69,6 +71,37 @@ export default function FormEvent() {
 		}
 
 		alert('Dados salvos com sucesso!');
+	}
+
+	function saveAPI() {
+		const noiva = document.getElementById('noiva').value;
+		const noivo = document.getElementById('noivo').value;
+		const email = document.getElementById('email').value;
+		const endereco = document.getElementById('endereco').value;
+		// const data = document.getElementById('data').value;
+		const data = '2024-11-06';
+		// const lista = [];
+
+		const formData = {
+			noiva,
+			noivo,
+			email,
+			endereco,
+			data,
+			mensagem: '',
+			comments: '',
+			// lista,
+		};
+		// if (id !== null && id !== undefined) {
+		// 	updateJSONInLocalStorage('allData', id, formData);
+		// } else {
+		// 	saveJSONToLocalStorage('allData', formData);
+		// }
+
+		saveAPIevento(formData);
+
+		// console.log(retorno);
+		// alert('Dados salvos com sucesso!');
 	}
 
 	function deleteFormData(id) {
@@ -164,7 +197,8 @@ export default function FormEvent() {
 					<button className="m-3" type="button" onClick={toInitialScreen}>
 						Voltar
 					</button>
-					<button className="m-3" type="button" onClick={saveFormData}>
+					{/* <button className="m-3" type="button" onClick={saveFormData}> */}
+					<button className="m-3" type="button" onClick={saveAPI}>
 						Salvar
 					</button>
 					{id ? (
