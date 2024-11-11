@@ -25,3 +25,8 @@ class ConvidadoSerializer(serializers.ModelSerializer):
         model = Convidado
         fields = '__all__'
         
+
+class ConvidadoUpdatePresenteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Convidado
+        fields = ['presente']

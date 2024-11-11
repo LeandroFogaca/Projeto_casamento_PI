@@ -86,4 +86,35 @@ async function saveAPIconvidados(convidado) {
 	}
 }
 
-export { saveAPIevento, getAPIconvidados, getAPIeventos, saveAPIconvidados };
+
+async function updatePresenteConvidado(id, presente) {
+	try {
+		const response = await fetch(
+			`${API_URL}convidados/${id}/update-presente/`,
+			{
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ presente }),
+			}
+		);
+
+		if (!response.ok) {
+			throw new Error('Network response was not ok ' + response.statusText);
+		}
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error('There was a problem with the fetch operation:', error);
+	}
+}
+
+export {
+	saveAPIevento,
+	getAPIconvidados,
+	getAPIeventos,
+	saveAPIconvidados,
+	updatePresenteConvidado,
+};

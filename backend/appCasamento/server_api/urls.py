@@ -24,7 +24,8 @@ from appCasamento.server_api import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'convidados', ConvidadoViewSet)
+router.register(r'convidados', ConvidadoViewSet, basename='convidados')
+router.register(r'eventos', views.EventoViewSet)
 
 
 # Wire up our API using automatic URL routing.
@@ -32,5 +33,7 @@ router.register(r'convidados', ConvidadoViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('convidados/<int:pk>/update-presente/', ConvidadoViewSet.as_view({'patch': 'update_presente'}), name='update-presente'),
+
 ]

@@ -28,14 +28,21 @@ from server_api import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+
+
+# As rotas serão definidas e criadas aqui 
 router.register(r'convidados', views.ConvidadoViewSet)
 router.register(r'eventos', views.EventoViewSet)
 
 
-# As rotas serão definidas e criadas aqui 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    
+    
+    # As rotas dinâmicas serão definidas e criadas aqui 
+    path('convidados/<int:pk>/update-presente/', views.ConvidadoViewSet.as_view({'patch': 'update_presente'}), name='update-presente'),
+
+    
 ]

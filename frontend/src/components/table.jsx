@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { updateJSONInLocalStorage } from '../db';
-import { getAPIconvidados } from '../api';
+import { getAPIconvidados, updatePresenteConvidado } from '../api';
 
 export default function Table() {
 	const { id } = useParams();
-	const [toggled, setToggled] = useState(false);
+	// const [toggled, setToggled] = useState(false);
 	const [events, setEvents] = useState();
 
 	const [lista, setLista] = useState([
@@ -14,21 +14,37 @@ export default function Table() {
 			age: '',
 			table: '',
 			comment: '',
-			present: false,
+			presente: false,
 		},
 	]);
 
-	const toggle = (item, index) => {
-		if (lista.name !== '') {
-			item.present = !item.present;
-			const updatedLista = [...lista];
-			updatedLista[index].present = item.present;
+	const toggle = (item) => {
+		console.log(item.id, item.presente);
+		updatePresenteConvidado(item.id, !item.presente).then((data) => {
+			const updatedLista = lista.map((listItem) =>
+				listItem.id === item.id
+					? { ...listItem, presente: !listItem.presente }
+					: listItem
+			);
+			console.log('updatedLista', updatedLista);
 			setLista(updatedLista);
-			events[id].lista = updatedLista;
-			setEvents(events);
-			updateJSONInLocalStorage('allData', id, updatedLista);
-			setToggled(!toggled);
-		}
+			// console.log('events', events);
+			// events[id].lista = updatedLista;
+			// setEvents(events);
+
+			console.log(data);
+		});
+
+		// if (lista.name !== '') {
+		// 	item.presente = !item.presente;
+		// 	const updatedLista = [...lista];
+		// 	updatedLista[index].presente = item.presente;
+		// 	setLista(updatedLista);
+		// 	events[id].lista = updatedLista;
+		// 	setEvents(events);
+		// 	updateJSONInLocalStorage('allData', id, updatedLista);
+		// 	setToggled(!toggled);
+		// }
 	};
 
 	const deleteItem = (index) => {
@@ -47,6 +63,7 @@ export default function Table() {
 				setEvents(data.results);
 				const eventList = data.results.filter((event) => event.evento == id);
 				setLista(eventList);
+				console.log(eventList);
 			});
 		}
 	}, []);
@@ -74,7 +91,7 @@ export default function Table() {
 									<button
 										onClick={() => toggle(item, index)}
 										className="rounded">
-										{item.present ? 'Sim' : 'Não'}
+										{item.presente ? 'Sim' : 'Não'}
 									</button>
 								</td>
 								<td>
