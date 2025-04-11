@@ -7,6 +7,7 @@ from rest_framework import permissions, viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
+from django.core.mail import send_mail
 
 from .models import Convidado, Evento
 from .serializers import ConvidadoSerializer, EventoSerializer, ConvidadoUpdatePresenteSerializer
@@ -38,6 +39,20 @@ class ConvidadoViewSet(viewsets.ModelViewSet):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=True, methods=['post'], url_path='send-confirmation-email')
+    def send_confirmation_email(self, request, pk=None):
+        convidado = self.get_object()
+        email = convidado.email  # Certifique-se de que o modelo Convidado tem um campo de e-mail
+        subject = "Confirmação de Presença"
+        message = f"Olá {convidado.nome},\n\nObrigado por confirmar sua presença no evento!"
+        from_email = 'seu_email@gmail.com'
+
+        try:
+            send_mail(subject, message, from_email, [email])
+            return Response({"message": "E-mail enviado com sucesso!"}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class UserViewSet(viewsets.ModelViewSet):
     """
