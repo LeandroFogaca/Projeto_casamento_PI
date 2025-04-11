@@ -31,4 +31,4 @@ jobs:
       # Executar os testes
       - name: Run tests
         run: |
-          python ./backend/appCasamentomanage.py test
+          python ./backend/appCasamento/manage.py test
