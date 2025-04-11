@@ -23,6 +23,10 @@ jobs:
         with:
           python-version: '3.10' # Altere para a versão do Python usada no seu projeto
 
+      # List files and directories
+      - name: List files and directories
+        run: |
+            ls -R
 
       # Executar os testes
       - name: Run tests
