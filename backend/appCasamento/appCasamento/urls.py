@@ -42,7 +42,5 @@ urlpatterns = [
     
     
     # As rotas dinâmicas serão definidas e criadas aqui 
-    path('convidados/<int:pk>/update-presente/', views.ConvidadoViewSet.as_view({'patch': 'update_presente'}), name='update-presente'),
-
-    
+    # (rota de update-presente removida, pois agora será gerada pelo router)
 ]

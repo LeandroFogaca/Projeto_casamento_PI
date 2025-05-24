@@ -28,7 +28,38 @@ jobs:
         run: |
             ls -R
 
+      # Instalar dependências do backend
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      # Configurar Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Instalar dependências do frontend (React)
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+          cd ..
+
+      # Executar migrações do banco de dados
+      - name: Run migrations
+        run: |
+          python ./backend/appCasamento/manage.py migrate
+
       # Executar os testes
-      - name: Run tests
+      - name: Run backend tests
         run: |
           python ./backend/appCasamento/manage.py test
+
+      # (Opcional) Executar testes do frontend, se existirem
+      - name: Run frontend tests
+        run: |
+          cd frontend
+          npm test -- --watchAll=false || true
+          cd ..

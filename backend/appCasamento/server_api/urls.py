@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from .views import ConvidadoViewSet
+from appCasamento.server_api.views import EnviarEmailView
+
+
 
 from appCasamento.server_api import views
 
@@ -28,6 +31,7 @@ router.register(r'convidados', ConvidadoViewSet, basename='convidados')
 router.register(r'eventos', views.EventoViewSet)
 
 
+
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
@@ -35,5 +39,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('convidados/<int:pk>/update-presente/', ConvidadoViewSet.as_view({'patch': 'update_presente'}), name='update-presente'),
+    path('enviar-email/', EnviarEmailView.as_view(), name='enviar-email'),
+    path('api/', include('server_api.urls')),
 
 ]

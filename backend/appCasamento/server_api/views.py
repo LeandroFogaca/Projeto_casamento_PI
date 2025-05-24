@@ -54,6 +54,7 @@ class ConvidadoViewSet(viewsets.ModelViewSet):
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+    
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -71,3 +72,19 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+class EnviarEmailView(APIView):
+    def post(self, request):
+        destinatario = request.data.get('email')
+        nome = request.data.get('nome', 'Convidado')
+
+        # Renderiza o template de e-mail
+        mensagem = render_to_string('email_template.html', {'nome': nome})
+
+        send_mail(
+            subject='Convite para o casamento',
+            message='',
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[destinatario],
+            html_message=mensagem,
+        )
+        return Response({'detail': 'E-mail enviado com sucesso!'}, status=status.HTTP_200_OK)
